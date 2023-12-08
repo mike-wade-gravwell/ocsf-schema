@@ -1,0 +1,10 @@
+{
+    "uid": 2,
+    "description": "Any rule that can be expected to require tuning in most environments.",
+    "extends": "base_detection",
+    "caption": "Query",
+    "name": "query",
+    "category": "detection",
+    "attributes": {
+        }
+}

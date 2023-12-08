@@ -1,0 +1,118 @@
+{
+    "caption": "Base Detection",
+    "category": "other",
+    "description": "The base event is a generic and concrete detection. It also defines a set of attributes available in most event classes.",
+    "name": "base_detection",
+    "profiles": [
+      "datetime"
+    ],
+      "attributes": {
+        
+        "category_name": {
+          "requirement": "optional"
+        },
+        "category_uid": {
+          "enum": {
+            "0": {
+              "caption": "Uncategorized"
+            }
+          },
+          "requirement": "required"
+        },
+      "references": {
+        "group": "primary",
+        "requirement": "optional"
+      },
+      "author": {
+        "group": "primary",
+        "requirement": "optional"
+      },
+      "attacks": {
+        "description": "The attack object describes the technique and associated tactics as defined by <a target='_blank' href='https://attack.mitre.org/wiki/ATT&CK_Matrix'>ATT&CK Matrix<sup>TM</sup></a>.",
+        "group": "context",
+        "requirement": "optional"
+      },
+      "class_name": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "class_uid": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "data_sources": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "product": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "product_uid": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "log_name": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "log_provider": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "log_version": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "detection_class": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "data_source_enable": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "version": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "detection_license": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "detection_tag": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "detection_query": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "detection_query_language": {
+        "group": "primary",
+        "requirement": "recommended"
+      },
+      "timeline": {
+        "group": "context",
+        "requirement": "optional"
+      },
+      "enrichments": {
+        "group": "context"
+      },
+      "metadata": {
+        "group": "context",
+        "requirement": "required"
+      },
+      "unmapped": {
+        "group": "context"
+      },
+      "end_time_window": {
+        "description": "The latest time in the detection search window.",
+        "requirement": "optional"
+      },
+      "start_time_window": {
+        "description": "The earliest time in the detection search window.",
+        "requirement": "optional"
+      }
+    }
+  }

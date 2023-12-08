@@ -1,0 +1,10 @@
+{
+    "uid": 3,
+    "description": "Detection used to collect risky events."
+    ,"extends": "base_detection",
+    "caption": "Risk Input",
+    "name": "risk_input",
+    "category": "detection",
+    "attributes": {
+        }
+}

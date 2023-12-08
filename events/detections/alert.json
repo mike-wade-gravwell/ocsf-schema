@@ -1,0 +1,57 @@
+{
+    "uid": 1,
+    "description": "An alert can be defined as a rule that in the majority of environments will cause a low false positive or true positive - benign rate",
+    "extends": "base_detection",
+    "caption": "Alert",
+    "name": "alert",
+    "category": "detection",
+    "attributes": {
+        "cron_schedule": {
+            "requirement": "optional"
+          },
+          "severity": {
+            "group": "classification",
+            "requirement": "optional"
+          },
+          "severity_id": {
+            "group": "classification",
+            "requirement": "required"
+          },
+          "cis_csc": {
+            "group": "context",
+            "requirement": "optional"
+          },
+          "kill_chain": {
+            "group": "context",
+            "requirement": "optional"
+          },
+          "confidence": {
+            "group": "primary",
+            "requirement":"optional"
+          },
+          "confidence_id": {
+            "group": "primary",
+            "requirement": "recommended"
+          },
+           "confidence_score": {
+            "group": "primary",
+            "requirement":"optional"
+          },
+          "lifecycle": {
+            "group": "classification",
+            "requirement": "recommended"
+          },
+          "lifecycle_id": {
+            "group": "classification",
+            "requirement": "recommended"
+          },
+          "phase": {
+            "group": "primary",
+            "requirement": "optional"
+          },
+          "phase_id": {
+            "group": "primary",
+            "requirement": "optional"
+          }
+    }
+}

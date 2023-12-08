@@ -1,0 +1,10 @@
+{
+    "uid": 4,
+    "description": "Detection used to score risky events by risk object"
+    ,"extends": "base_detection",
+    "caption": "Risk",
+    "name": "risk",
+    "category": "detection",
+    "attributes": {
+        }
+}

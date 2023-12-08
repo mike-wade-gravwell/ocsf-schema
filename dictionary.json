@@ -266,6 +266,11 @@
       "sibling": "auth_type",
       "type": "integer_t"
     },
+    "author": {
+      "caption": "Detection Author",
+      "description": "Creator of the detection",
+      "type": "string_t"
+    },
     "authorizations": {
       "caption": "Authorization Information",
       "description": "Provides details about an authorization, such as authorization outcome, and any associated policies related to the activity/event.",
@@ -902,7 +907,8 @@
           "description": "The confidence is not mapped to the defined enum values. See the <code>confidence</code> attribute, which contains a data source specific value."
         }
       },
-      "type": "integer_t"
+      "type": "integer_t",
+      "sibling": "confidence"
     },
     "confidence_score": {
       "caption": "Confidence Score",
@@ -1059,6 +1065,11 @@
       "description": "Criticality of a resource/object in question",
       "type": "string_t"
     },
+    "cron_schedule": {
+      "caption": "Cron Schedule",
+      "description": "Cron schedule for detection search",
+      "type": "string_t"
+    },
     "customer_uid": {
       "@deprecated": {
         "message": "Use the <code> tenant_uid </code> attribute instead.",
@@ -1098,6 +1109,12 @@
     "data_sources": {
       "caption": "Data Sources",
       "description": "A list of data sources utilized in generation of the finding.",
+      "is_array": true,
+      "type": "string_t"
+    },
+    "data_source_enable": {
+      "caption": "Log Source Enable",
+      "description": "List of instructions to enable log source to emit needed log.",
       "is_array": true,
       "type": "string_t"
     },
@@ -1157,9 +1174,122 @@
       "description": "Details of an entity. See specific usage",
       "type": "string_t"
     },
+    "detection_category": {
+      "caption": "Detection Category",
+      "description": "OCSF Category",
+      "enum": {
+        "99": {
+          "description": "The detection category is unknown.",
+          "caption": "Unknown"
+        },
+        "0": {
+          "description": "System Activity events.",
+          "caption": "System Activity"
+        },
+        "1": {
+          "description": "Findings events report findings, detections, and possible resolutions of malware, anomalies, or other actions performed by security products.",
+          "caption": "Findings"
+        },
+        "2": {
+          "description": "Identity & Access Management (IAM) events relate to the supervision of the system's authentication and access control model.",
+          "caption": "Identity and Access Management"
+        },
+        "3": {
+          "description": "Network Activity events.",
+          "caption": "Network Activity"
+        },
+        "4": {
+          "description": "Discovery events report the existence and state of devices, files, configurations, processes, registry keys, and other objects.",
+          "caption": "Discovery"
+        },
+        "5": {
+          "description": "Application Activity events report detailed information about the behavior of applications and services.",
+          "caption": "Application Activity"
+        }
+      },
+      "type": "integer_t"
+    },
+    "detection_class": {
+      "caption": "Detection Class",
+      "description": "Type of detection",
+      "enum": {
+        "99": {
+          "description": "The detection class is unknown.",
+          "caption": "Unknown"
+        },
+        "0": {
+          "description": "These rules would be tied to a specific threat actor campaign.",
+          "caption": "Campaign"
+        },
+        "1": {
+          "description": "These rules are meant to identify behaviors that may match an adversary's behavior based on known reporting.",
+          "caption": "Behavioral"
+        },
+        "2": {
+          "description": "These rules identify the usage of a specific tool (offensive, or living off the land).",
+          "caption": "Tool"
+        },
+        "3": {
+          "description": "hese rules are meant to identify potential weaknesses in an environment.",
+          "caption": "Generic"
+        },
+        "4": {
+          "description": "These are rules meant to identify the exploitation or probing of a vulnerability (e.g. CVE, General SQL-I / XSS Rules).",
+          "caption": "Exploit"
+        },
+        "5": {
+          "description": "Rules that are created for urgent adversary activity that has little to no other detection measures (e.g. wannacry, notpetya, mass & urgent exploitation).",
+          "caption": "IOC"
+        }
+      },
+      "type": "integer_t"
+    },
+    "detection_query": {
+      "caption": "Detection Query",
+      "description": "Query used for the detection",
+      "type": "string_t"
+    },
+    "detection_query_language": {
+      "caption": "Detection Query Language",
+      "description": "Language used in the query.",
+      "enum": {
+        "99": {
+          "description": "The detection language is unknown.",
+          "caption": "Unknown"
+        },
+        "0": {
+          "description": "Splunk SPL",
+          "caption": "splunk"
+        },
+        "1": {
+          "description": "Gravwell",
+          "caption": "gravwell"
+        },
+        "2": {
+          "description": "Logscale",
+          "caption": "logscale"
+        },
+        "3": {
+          "description": "Elastic",
+          "caption": "elastic"
+        }
+      },
+      "type": "integer_t"
+    },
     "detection_uid": {
       "caption": "Detection UID",
       "description": "The associated unique detection event identifier. For example: detection response events include the <b>Detection ID</b> of the original event.",
+      "type": "string_t"
+    },
+    "detection_license": {
+      "caption": "Detection License",
+      "description": "The license applied to the detection by the detection author.",
+      "type": "string_t"
+    },
+    "detection_tag": {
+      "caption": "Detection Tag",
+      "description": "List of tags to classify detection.",
+      "is_array": true,
       "type": "string_t"
     },
     "developer_uid": {
@@ -1342,6 +1472,11 @@
       "caption": "End Time",
       "description": "The end time of a time period. See specific usage.",
       "type": "timestamp_t"
+    },
+    "end_time_window": {
+      "caption": "End Time",
+      "description": "The seconds from now to end the search window.",
+      "type": "integer_t"
     },
     "enrichments": {
       "caption": "Enrichments",
@@ -1985,6 +2120,41 @@
     "length": {
       "caption": "Response Length",
       "description": "The HTTP response length, in number of bytes.",
+      "type": "integer_t"
+    },
+    "lifecycle": {
+      "caption": "Lifecycle",
+      "description": "The detection build stage",
+      "type": "string_t"
+    },
+    "lifecycle_id": {
+      "caption": "Lifecycle ID",
+      "description": "The detection build stage id",
+      "enum": {
+        "99": {
+          "caption": "Unknown",
+          "description": "The lifecycle_id is not mapped. See the <code>lifecycle</code> attribute, which contains a data source specific value."
+        },"0": {
+          "caption": "Proposed",
+          "description": "The detection hypothesis has been propsed but has not been developed or tested."
+        },
+        "1": {
+          "caption": "Development",
+          "description": "Detection development is underway."
+        },
+        "2": {
+          "caption": "Testing",
+          "description": "The deteciton has been developed and testing is needed."
+        },
+        "3": {
+          "caption": "Staged",
+          "description": "Detection has been tested and is ready for development."
+        },
+        "4": {
+          "caption": "Archive",
+          "description": "Detection is archived and not in use."
+        }
+      },
       "type": "integer_t"
     },
     "lineage": {
@@ -3144,6 +3314,11 @@
       "description": "The start time of a time period. See specific usage.",
       "type": "timestamp_t"
     },
+    "start_time_window": {
+      "caption": "Start Time",
+      "description": "The seconds from now to start the search window.",
+      "type": "integer_t"
+    },
     "state": {
       "caption": "State",
       "description": "The state of the event or object, normalized to the caption of the state_id value. In the case of 'Other', it is defined by the event source. See specific usage.",
@@ -3337,6 +3512,11 @@
       "caption": "Event Time",
       "description": "The normalized event occurrence time.",
       "type": "timestamp_t"
+    },
+    "timezone": {
+      "caption": "Event timezone",
+      "description": "The timezone to use for detection search windows.",
+      "type": "string_t"
     },
     "timezone_offset": {
       "caption": "Timezone Offset",
@@ -3571,6 +3751,12 @@
     "match_details": {
       "caption": "Match Details",
       "description": "The data in a request that rule matched. For example: '[\"10\",\"and\",\"1\"]'.",
+      "is_array": true,
+      "type": "string_t"
+    },
+    "timeline": {
+      "caption": "Timeline",
+      "description": "It has to include the name of the actor, TLP:key, and dates when the behavior described in the detection was used by the Actor.",
       "is_array": true,
       "type": "string_t"
     },

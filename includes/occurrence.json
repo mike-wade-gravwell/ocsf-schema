@@ -24,6 +24,17 @@
     },
     "timezone_offset": {
       "requirement": "recommended"
+    },
+    "end_time_window": {
+      "description": "The latest time in the detection search window.",
+      "requirement": "optional"
+    },
+    "start_time_window": {
+      "description": "The earliest time in the detection search window.",
+      "requirement": "optional"
+    },
+    "timezone": {
+      "requirement": "recommended"
     }
   }
 }
